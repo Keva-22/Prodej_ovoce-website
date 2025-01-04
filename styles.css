@@ -1,0 +1,534 @@
+/* ---------------------------------------------
+   1) RESET & GLOBAL STYLES
+--------------------------------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal overflow on small screens */
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Make images fluid */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* avoids extra spacing below images */
+  }
+  
+  /* Make tables adapt; no fixed width */
+  table {
+    width: 100%;
+    table-layout: auto; /* let columns shrink as needed */
+    border-collapse: collapse;
+  }
+  
+  /* ---------------------------------------------
+     2) HEADER & NAV
+  --------------------------------------------- */
+  header {
+    background-color: #7FBF7F;
+    padding: 1rem 2rem;
+    border-bottom: 3px solid #6EAE6E;
+  }
+  
+  header h1 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  nav li {
+    transition: transform 0.2s ease-in-out;
+  }
+  nav li:hover {
+    transform: scale(1.02);
+  }
+  nav a {
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+  }
+  
+  /* ---------------------------------------------
+     3) HERO SECTION
+  --------------------------------------------- */
+  .hero {
+    /* Mobile-first: full width */
+    width: 100%;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+      url("https://via.placeholder.com/1200x400?text=Ovocn%C3%A1%C5%99stv%C3%AD+Holub")
+      no-repeat center/cover;
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+  }
+  .hero h2 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .hero p {
+    max-width: 700px;
+    margin: 0.5rem auto 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: #444;
+  }
+  
+  /* ---------------------------------------------
+     4) BASE SECTION STYLES
+  --------------------------------------------- */
+  /* Mobile-first: section is 100% wide; 
+     we add bigger container widths at larger breakpoints. */
+  section {
+    width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Headings & paragraphs inside sections */
+  section h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #333;
+    border-left: 5px solid #7FBF7F;
+    padding-left: 0.75rem;
+  }
+  section p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* ---------------------------------------------
+     5) TABLE (Nabídka moštů)
+  --------------------------------------------- */
+  thead {
+    background-color: #7FBF7F;
+    color: #fff;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  tbody tr:hover {
+    background-color: #f7f7f7;
+  }
+  s {
+    color: #999;
+  }
+  
+  /* ---------------------------------------------
+     6) LIST STYLES (e.g. for fruits)
+  --------------------------------------------- */
+  ul {
+    margin-left: 1.5rem;
+    list-style: disc;
+  }
+  ul ul {
+    margin-left: 1.5rem;
+    list-style: circle;
+    margin-top: 0.5rem;
+  }
+  
+  /* ---------------------------------------------
+     7) GALLERY SECTION
+  --------------------------------------------- */
+  .galerie-section {
+    background-color: #f7f7f7;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    max-width: 1200px; /* This one can remain fixed for large galleries */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .galerie-section h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .galerie-section h2::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: #ffc107;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  .galerie-section p.lead {
+    color: #555;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .galerie-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+    height: 100%;
+  }
+  .galerie-item:hover {
+    transform: scale(1.02);
+  }
+  .galerie-item img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s;
+    border-radius: 4px;
+  }
+  .galerie-item:hover img {
+    opacity: 0.95;
+  }
+  
+  /* ---------------------------------------------
+     8) FORM SECTION (#zprava)
+  --------------------------------------------- */
+  #zprava form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  #zprava label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  #zprava input[type="email"],
+  #zprava textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+  }
+  #zprava button {
+    align-self: flex-start;
+    padding: 0.75rem 1.5rem;
+    background-color: #7FBF7F;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+  }
+  #zprava button:hover {
+    background-color: #6EAE6E;
+  }
+  
+  /* ---------------------------------------------
+     9) MAP SECTION
+  --------------------------------------------- */
+  #map {
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+  }
+  #map h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+  }
+  #map h2::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #ffc107;
+    border-radius: 2px;
+  }
+  
+  /* ---------------------------------------------
+     10) CONTACT SECTION
+  --------------------------------------------- */
+  .contact-section {
+    background-color: #f7f7f7;
+    padding: 60px 0;
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+  }
+  .contact-section h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+  }
+  .contact-columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .left-column,
+  .right-column {
+    flex: 1 1 300px;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .left-column p,
+  .right-column p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: #555;
+    text-align: left;
+  }
+  .left-column i,
+  .right-column i {
+    margin-right: 10px;
+    color: #ffc107;
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+  .flag {
+    margin: 0 4px 0 0;
+    font-size: 1.1rem;
+  }
+  .left-column a,
+  .right-column a {
+    color: #007bff;
+  }
+  .left-column a:hover,
+  .right-column a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ---------------------------------------------
+     11) FOOTER
+  --------------------------------------------- */
+  footer {
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: #7FBF7F;
+    color: #fff;
+    margin-top: 2rem;
+    border-top: 3px solid #6EAE6E;
+  }
+  footer p {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  /* ---------------------------------------------
+     12) FRUIT SECTION (example overrides)
+  --------------------------------------------- */
+  .fruit-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+  .fruit-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  .fruit-item h3 {
+    font-size: 1.4rem;
+    color: #444;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .fruit-sublist {
+    margin-left: 1.5rem;
+    list-style: circle;
+    color: #555;
+    font-size: 1.1rem;
+  }
+  .fruit-sublist li {
+    margin: 0.3rem 0;
+  }
+  .fruit-section .note {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+  }
+  .fruit-section .note a {
+    color: #007bff;
+  }
+  .fruit-section .note a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ---------------------------------------------
+     13) RESPONSIVE MEDIA QUERIES
+     (Mobile-first approach, adjusting layout
+      as screen size increases)
+  --------------------------------------------- */
+  
+  /* -- Up to 575.98px (extra-small) -- */
+  @media (max-width: 575.98px) {
+    /* Stack nav in a column */
+    nav ul {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    .hero {
+      padding: 2rem 1rem;
+    }
+    .hero h2 {
+      font-size: 1.6rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+  
+    /* Remove box-shadow on sections for narrower screens, etc. */
+    section {
+      width: 100%;
+      margin: 0;
+      padding: 1rem;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  
+    /* Let wide tables scroll horizontally */
+    #nabidka-mostu table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    /* Contact columns stack */
+    .contact-columns {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  
+  /* -- 576px to 767.98px (small devices) -- */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    section {
+      /* Center the content but still quite wide */
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    nav a {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* -- 768px to 991.98px (tablets) -- */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .hero h2 {
+      font-size: 2rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+  
+    nav {
+      justify-content: flex-start;
+    }
+  
+    section {
+      max-width: 80%;
+      margin: 1rem auto;
+    }
+  
+    /* Example two-column layout for contact */
+    .contact-columns {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .contact-columns > div {
+      flex: 1 1 48%;
+      max-width: 48%;
+    }
+  }
+  
+  /* -- 992px to 1199.98px (small desktops) -- */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    header h1 {
+      font-size: 2.2rem;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+    }
+  
+    section {
+      max-width: 80%;
+      margin: 2rem auto;
+    }
+    nav ul {
+      justify-content: space-between;
+    }
+  }
+  
+  /* -- 1200px to 1919.98px (large desktops) -- */
+  @media (min-width: 1200px) and (max-width: 1919.98px) {
+    .hero h2 {
+      font-size: 2.4rem;
+    }
+  
+    section {
+      max-width: 80%;
+      margin: 2rem auto;
+    }
+  }
+  
+  /* -- 1920px and above (very large screens) -- */
+  @media (min-width: 1920px) {
+    .hero h2 {
+      font-size: 2.6rem;
+    }
+  }
